@@ -355,3 +355,9 @@ To https://github.com/Ndizihiwe99/Git_repo.git
  * [new branch]      ft/new-branch-from-commit -> ft/new-branch-from-commit
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
+
+### 9. Renaming Branches:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git branch -m ft/new-branch-from-commit ft/improved-branch-name
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
