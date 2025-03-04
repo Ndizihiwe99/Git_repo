@@ -1,4 +1,4 @@
-# Git_repo
+
 ## Part 1: Refining Git History
 
 ### 6. Dropping a Commit:
