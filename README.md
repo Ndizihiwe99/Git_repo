@@ -361,3 +361,79 @@ gymikirengaii@Ikirengas-iMac Git_repo %
 gymikirengaii@Ikirengas-iMac Git_repo % git branch -m ft/new-branch-from-commit ft/improved-branch-name
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
+
+### 10. Checking Out Detached HEAD:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git log
+commit 4993f494bf0ef100705e7bc867e3efc7d8c760d2 (HEAD -> ft/improved-branch-name, origin/main, origin/ft/new-branch-from-commit, origin/HEAD, main)
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 17:40:55 2025 +0200
+
+    Update README.md
+
+commit 36753b6045be7737b5a859f8851b6c2e2bf61656
+Merge: 007f736 47d1498
+Author: Ndizihiwe99 <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 17:16:37 2025 +0200
+
+    Merge with ft/new feature
+
+commit 007f736def8271da2b3d8de779cdf96f0e33926a
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 16:17:29 2025 +0200
+
+    Update README.md
+
+commit b6fbe3862816f27d4c50b1f85eaa7d4edb4b2176
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 16:12:44 2025 +0200
+
+    Update README.md
+
+commit c98e2193dd3367c07297fc784d2f55e15d6a04cb
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 16:04:11 2025 +0200
+
+    Update README.md
+
+commit c74c56d337ac4be5becdd7eb41165505bf3fd007
+Author: Ndizihiwe99 <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 15:42:55 2025 +0200
+
+    Updated project readme
+
+commit 47d1498e2c6cf62a825ffe48c011e66b8a171b8b (origin/ft/new-feature)
+Author: Ndizihiwe99 <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 15:39:33 2025 +0200
+
+    Implemented core functionality for new feature
+
+commit aed443ec81847f91ad25974f082bac5022f5abbb
+Author: Ndizihiwe99 <eugenekjyn@gmail.com>
+Date:   Tue Mar 4 13:38:48 2025 +0200
+
+    pickked cherry
+
+commit d77f34e02ae12ede19dfe1b8d5619219ca4fb9fc
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Mon Mar 3 17:13:41 2025 +0200
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout 47d1498e2c6cf62a825ffe48c011e66b8a171b8b
+Note: switching to '47d1498e2c6cf62a825ffe48c011e66b8a171b8b'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 47d1498 Implemented core functionality for new feature
+````
