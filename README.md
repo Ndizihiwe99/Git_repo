@@ -312,3 +312,46 @@ gymikirengaii@Ikirengas-iMac Git_repo % git log --oneline --graph
 * 19b4da9 Initial commit
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
+
+### 7. Branch Merging:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git fetch origin
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.68 KiB | 246.00 KiB/s, done.
+From https://github.com/Ndizihiwe99/Git_repo
+   36753b6..4993f49  main       -> origin/main
+gymikirengaii@Ikirengas-iMac Git_repo % git pull origin main 
+From https://github.com/Ndizihiwe99/Git_repo
+ * branch            main       -> FETCH_HEAD
+Updating 36753b6..4993f49
+Fast-forward
+ README.md | 70 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
+gymikirengaii@Ikirengas-iMac Git_repo % git merge ft/new-branch-from-commit
+Already up to date.
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin main
+Everything up-to-date
+````
+
+### 8. Branch Rebasing:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git fetch origin
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+gymikirengaii@Ikirengas-iMac Git_repo % git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+gymikirengaii@Ikirengas-iMac Git_repo % git push -f origin ft/new-branch-from-commit
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+remote: 
+remote: Create a pull request for 'ft/new-branch-from-commit' on GitHub by visiting:
+remote:      https://github.com/Ndizihiwe99/Git_repo-Advanced-Git/pull/new/ft/new-branch-from-commit
+remote: 
+To https://github.com/Ndizihiwe99/Git_repo.git
+ * [new branch]      ft/new-branch-from-commit -> ft/new-branch-from-commit
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
