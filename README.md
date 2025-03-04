@@ -242,3 +242,73 @@ To https://github.com/Ndizihiwe99/Git_repo.git
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
 
+### 5. Branch Deletion:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git fetch origin
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 9 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (9/9), 4.62 KiB | 525.00 KiB/s, done.
+From https://github.com/Ndizihiwe99/Git_repo
+   c74c56d..007f736  main       -> origin/main
+gymikirengaii@Ikirengas-iMac Git_repo % git pull origin main
+From https://github.com/Ndizihiwe99/Git_repo
+ * branch            main       -> FETCH_HEAD
+Updating c74c56d..007f736
+Fast-forward
+ README.md | 245 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 244 insertions(+), 1 deletion(-)
+gymikirengaii@Ikirengas-iMac Git_repo % git merge ft/new-feature
+Merge made by the 'ort' strategy.
+ feature.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 feature.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 276 bytes | 276.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+   007f736..36753b6  main -> main
+gymikirengaii@Ikirengas-iMac Git_repo % git branch -d ft/new-feature
+Deleted branch ft/new-feature (was 47d1498).
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
+### 6. Creating a Branch from a Commit:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git log --oneline --graph
+*   36753b6 (HEAD -> main, origin/main, origin/HEAD) Merge with ft/new feature
+|\  
+| * 47d1498 (origin/ft/new-feature) Implemented core functionality for new feature
+* | 007f736 Update README.md
+* | b6fbe38 Update README.md
+* | c98e219 Update README.md
+* | c74c56d Updated project readme
+|/  
+* aed443e pickked cherry
+* d77f34e chore: Create initial file
+* 0f2c433 Create Third file and Create fourth File
+* 19b4da9 Initial commit
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout -b ft/new-branch-from-commit 36753b6
+Switched to a new branch 'ft/new-branch-from-commit'
+gymikirengaii@Ikirengas-iMac Git_repo % git log --oneline --graph                        
+*   36753b6 (HEAD -> ft/new-branch-from-commit, origin/main, origin/HEAD, main) Merge with ft/new feature
+|\  
+| * 47d1498 (origin/ft/new-feature) Implemented core functionality for new feature
+* | 007f736 Update README.md
+* | b6fbe38 Update README.md
+* | c98e219 Update README.md
+* | c74c56d Updated project readme
+|/  
+* aed443e pickked cherry
+* d77f34e chore: Create initial file
+* 0f2c433 Create Third file and Create fourth File
+* 19b4da9 Initial commit
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
