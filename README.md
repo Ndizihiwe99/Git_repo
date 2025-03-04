@@ -183,7 +183,7 @@ gymikirengaii@Ikirengas-iMac Git_repo %
 
 ```
 
-##Part 2: Branching Basics
+## Part 2: Branching Basics
 
 
 ### 1. Feature Branch Creation:
