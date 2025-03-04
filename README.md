@@ -183,10 +183,10 @@ gymikirengaii@Ikirengas-iMac Git_repo %
 
 ```
 
-# Part 2: Branching Basics
+##Part 2: Branching Basics
 
-## 1. Feature Branch Creation:
 
+### 1. Feature Branch Creation:
 ```
 gymikirengaii@Ikirengas-iMac Git_repo % git checkout -b ft/new-feature
 Switched to a new branch 'ft/new-feature'
@@ -194,4 +194,51 @@ gymikirengaii@Ikirengas-iMac Git_repo %
 
 ```
 
-## 2. Working on the Feature Branch:
+### 2. Working on the Feature Branch:
+````
+gymikirengaii@Ikirengas-iMac Git_repo %  touch feature.txt 
+gymikirengaii@Ikirengas-iMac Git_repo % git add feature.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "Implemented core functionality for new feature"
+[ft/new-feature 47d1498] Implemented core functionality for new feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 feature.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin ft/new-feature
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 481 bytes | 481.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote: 
+remote: Create a pull request for 'ft/new-feature' on GitHub by visiting:
+remote:      https://github.com/Ndizihiwe99/Git_repo/pull/new/ft/new-feature
+remote: 
+To https://github.com/Ndizihiwe99/Git_repo.git
+ * [new branch]      ft/new-feature -> ft/new-feature
+````
+
+### 3.Switching Back and Making More Changes:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+gymikirengaii@Ikirengas-iMac Git_repo % touch readme.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git add readme.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "Updated project readme"
+[main c74c56d] Updated project readme
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.txt
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin HEAD --force                                 
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 253 bytes | 253.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Ndizihiwe99/Git_repo.git
+ + 328ffb2...c74c56d HEAD -> main (forced update)
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
+
