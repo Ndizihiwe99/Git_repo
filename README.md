@@ -312,3 +312,216 @@ gymikirengaii@Ikirengas-iMac Git_repo % git log --oneline --graph
 * 19b4da9 Initial commit
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
+
+
+## Part 3: Advanced Workflows
+
+### 1. Stashing Changes:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % touch stashFile.md
+gymikirengaii@Ikirengas-iMac Git_repo % git add stashFile.md
+gymikirengaii@Ikirengas-iMac Git_repo % git stash
+Saved working directory and index state WIP on main: 4993f49 Update README.md
+````
+
+### 2. Retrieving Stashed Changes:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+(use "git restore --staged <file>..." to unstage)
+new file:   [stashFile.md](http://stashfile.md/)
+
+Dropped refs/stash@{0} (90f20b315b74b1a5925fdec4e7671b3a44394333)
+````
+
+### 3. Branch Merging Conflicts (Continued):
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout ft/branch
+M test1.md
+Switched to branch 'ft/branch'
+gymikirengaii@Ikirengas-iMac Git_repo % git add .
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "similating merge confict"
+[ft/branch bcb1f09] similating merge confict
+1 file changed, 1 insertion(+)
+gymikirengaii@Ikirengas-iMac Git_repo % git push --set-upstream origin ft/branch
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 280 bytes | 280.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+63faf3e..bcb1f09  ft/branch -> ft/branch
+branch 'ft/branch' set up to track 'origin/ft/branch'.
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+gymikirengaii@Ikirengas-iMac Git_repo % git add .
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "want to cause merge conflict"
+[main 3353d9d] want to cause merge conflict
+1 file changed, 1 insertion(+)
+gymikirengaii@Ikirengas-iMac Git_repo % git push -f
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 500 bytes | 500.00 KiB/s, done.
+Total 5 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+
+- 302cfb4...3353d9d main -> main (forced update)
+gymikirengaii@Ikirengas-iMac Git_repo % git merge ft/branch
+Auto-merging [test1.md](http://test1.md/)
+CONFLICT (content): Merge conflict in [test1.md](http://test1.md/)
+Automatic merge failed; fix conflicts and then commit the result.
+gymikirengaii@Ikirengas-iMac Git_repo % git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff tortoisemerge emerge vimdiff nvimdiff
+Merging:
+[test1.md](http://test1.md/)
+
+Normal merge conflict for '[test1.md](http://test1.md/)':
+{local}: modified file
+{remote}: modified file
+````
+
+### 4. Resolving Merge Conflicts with a Merge Tool:
+````
+- gymikirengaii@Ikirengas-iMac Git_repo % git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff tortoisemerge emerge vimdiff nvimdiff
+Merging:
+[test1.md](http://test1.md/)
+
+Normal merge conflict for '[test1.md](http://test1.md/)':
+{local}: modified file
+{remote}: modified file
+Hit return to start merge resolution tool (opendiff): git mergetool --tool -help
+
+xcode-select: error: tool 'opendiff' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+[test1.md](http://test1.md/) seems unchanged.
+Was the merge successful [y/n]? n
+merge of [test1.md](http://test1.md/) failed
+gymikirengaii@Ikirengas-iMac Git_repo % git merge ft/branch
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+gymikirengaii@Ikirengas-iMac Git_repo % git add .
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "resolved conflict"
+[main 5bd3cb8] resolved conflict
+gymikirengaii@Ikirengas-iMac Git_repo % git push -f
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 223 bytes | 223.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+3353d9d..5bd3cb8  main -> main
+gymikirengaii@Ikirengas-iMac Git_repo % git merge main
+Updating bcb1f09..5bd3cb8
+Fast-forward
+README.md    | 315 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+feature.txt  |   0
+readme.txt   |   0
+stashFile.md |   0
+test1.md     |   2 +-
+5 files changed, 315 insertions(+), 2 deletions(-)
+create mode 100644 feature.txt
+create mode 100644 readme.txt
+create mode 100644 stashFile.md
+````
+
+### 5. Understanding Detached HEAD State:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+gymikirengaii@Ikirengas-iMac Git_repo % 
+````
+
+### 6. Ignoring Files/Directories:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % touch .gitignore
+gymikirengaii@Ikirengas-iMac Git_repo % git rm --cached test2.md
+fatal: pathspec 'test2.md' did not match any files
+gymikirengaii@Ikirengas-iMac Git_repo % git add .gitignore      
+gymikirengaii@Ikirengas-iMac Git_repo % git commit -m "stop tracking test2.md"
+[main ae9be67] stop tracking test2.md
+ 2 files changed, 2 insertions(+)
+ create mode 100644 .gitignore
+ delete mode 100644 test2.md
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 317 bytes | 317.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+   5bd3cb8..ae9be67  main -> main
+gymikirengaii@Ikirengas-iMac Git_repo % git ls-files --others --exclude-standard
+test2.md
+````
+
+### 7. Working with Tags:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git tag v1.0
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin v1.0
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+ * [new tag]         v1.0 -> v1.0
+gymikirengaii@Ikirengas-iMac Git_repo % git tag
+v1.0
+gymikirengaii@Ikirengas-iMac Git_repo % git tag v1.0
+fatal: tag 'v1.0' already exists
+````
+
+### 8. Listing and Deleting Tags:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git tag
+v1.0
+v1.2
+gymikirengaii@Ikirengas-iMac Git_repo % git tag -d v1.2 
+Deleted tag 'v1.2' (was ae9be67)
+````
+
+### 9. Pushing Local Work to Remote Repositories:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git push origin v1.0
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/Ndizihiwe99/Git_repo-Advanced-Git.git
+To https://github.com/Ndizihiwe99/Git_repo.git
+ * [new tag]         v1.0 -> v1.0
+````
+
+### 10. Pulling Changes from Remote Repositories:
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git pull origin main
+From https://github.com/Ndizihiwe99/Git_repo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+````
+
