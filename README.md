@@ -313,6 +313,14 @@ gymikirengaii@Ikirengas-iMac Git_repo % git log --oneline --graph
 gymikirengaii@Ikirengas-iMac Git_repo % 
 ````
 
+### 7.
+````
+gymikirengaii@Ikirengas-iMac Git_repo % git log
+commit 6b2fb60236c11ee9fa800feeb41ca08edc59a7fc (HEAD -> ft/new-branch-from-commit, origin/main, origin/HEAD, main)
+Author: Eugene Ndizihiwe <eugenekjyn@gmail.com>
+Date:   Thu Mar 6 09:58:12 2025 +0200
+````
+
 
 ## Part 3: Advanced Workflows
 
